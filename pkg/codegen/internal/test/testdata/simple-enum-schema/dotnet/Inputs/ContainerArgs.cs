@@ -24,9 +24,13 @@ namespace Pulumi.Plant.Inputs
         [Input("size", required: true)]
         public Input<Pulumi.Plant.ContainerSize> Size { get; set; } = null!;
 
+        [Input("state")]
+        public Input<Pulumi.Plant.ContainerState>? State { get; set; }
+
         public ContainerArgs()
         {
             Brightness = Pulumi.Plant.ContainerBrightness.One;
+            State = Pulumi.Plant.ContainerState.@New;
         }
     }
 }

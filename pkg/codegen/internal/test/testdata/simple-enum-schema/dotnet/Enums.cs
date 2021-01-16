@@ -77,4 +77,41 @@ namespace Pulumi.Plant
         [Obsolete(@"Eight inch pots are no longer supported.")]
         EightInch = 8,
     }
+
+    /// <summary>
+    /// State of the container
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerState : IEquatable<ContainerState>
+    {
+        private readonly string _value;
+
+        private ContainerState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// A brand new container.
+        /// </summary>
+        public static ContainerState @New { get; } = new ContainerState("new");
+        /// <summary>
+        /// A used container.
+        /// </summary>
+        public static ContainerState Used { get; } = new ContainerState("used");
+
+        public static bool operator ==(ContainerState left, ContainerState right) => left.Equals(right);
+        public static bool operator !=(ContainerState left, ContainerState right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerState other && Equals(other);
+        public bool Equals(ContainerState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

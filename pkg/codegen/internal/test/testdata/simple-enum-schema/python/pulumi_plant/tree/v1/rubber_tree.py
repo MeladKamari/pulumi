@@ -21,6 +21,7 @@ class RubberTree(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container: Optional[pulumi.Input[pulumi.InputType['_root_inputs.ContainerArgs']]] = None,
                  farm: Optional[pulumi.Input[Union['Farm', str]]] = None,
+                 size: Optional[pulumi.Input['TreeSize']] = None,
                  type: Optional[pulumi.Input['RubberTreeVariety']] = None,
                  __props__=None,
                  __name__=None,
@@ -51,6 +52,9 @@ class RubberTree(pulumi.CustomResource):
             if farm is None:
                 farm = '(unknown)'
             __props__['farm'] = farm
+            if size is None:
+                size = 'medium'
+            __props__['size'] = size
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
@@ -87,6 +91,11 @@ class RubberTree(pulumi.CustomResource):
     @pulumi.getter
     def farm(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "farm")
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Output[Optional['TreeSize']]:
+        return pulumi.get(self, "size")
 
     @property
     @pulumi.getter

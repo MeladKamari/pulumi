@@ -8,6 +8,7 @@ __all__ = [
     'ContainerBrightness',
     'ContainerColor',
     'ContainerSize',
+    'ContainerState',
 ]
 
 
@@ -32,3 +33,11 @@ class ContainerSize(int, Enum):
     FOUR_INCH = 4
     SIX_INCH = 6
     EIGHT_INCH = 8
+
+
+class ContainerState(str, Enum):
+    """
+    State of the container
+    """
+    NEW = "new"
+    USED = "used"

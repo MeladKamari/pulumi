@@ -75,4 +75,33 @@ namespace Pulumi.Plant.Tree.V1
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct TreeSize : IEquatable<TreeSize>
+    {
+        private readonly string _value;
+
+        private TreeSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TreeSize Small { get; } = new TreeSize("small");
+        public static TreeSize Medium { get; } = new TreeSize("medium");
+        public static TreeSize Large { get; } = new TreeSize("large");
+
+        public static bool operator ==(TreeSize left, TreeSize right) => left.Equals(right);
+        public static bool operator !=(TreeSize left, TreeSize right) => !left.Equals(right);
+
+        public static explicit operator string(TreeSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TreeSize other && Equals(other);
+        public bool Equals(TreeSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

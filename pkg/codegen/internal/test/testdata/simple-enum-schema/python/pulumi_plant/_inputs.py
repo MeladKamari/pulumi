@@ -19,7 +19,8 @@ class ContainerArgs:
                  size: pulumi.Input['ContainerSize'],
                  brightness: Optional[pulumi.Input['ContainerBrightness']] = None,
                  color: Optional[pulumi.Input[Union['ContainerColor', str]]] = None,
-                 material: Optional[pulumi.Input[str]] = None):
+                 material: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['ContainerState']] = None):
         pulumi.set(__self__, "size", size)
         if brightness is None:
             brightness = 1
@@ -29,6 +30,10 @@ class ContainerArgs:
             pulumi.set(__self__, "color", color)
         if material is not None:
             pulumi.set(__self__, "material", material)
+        if state is None:
+            state = 'new'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -65,5 +70,14 @@ class ContainerArgs:
     @material.setter
     def material(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "material", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['ContainerState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['ContainerState']]):
+        pulumi.set(self, "state", value)
 
 

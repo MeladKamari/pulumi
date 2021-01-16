@@ -18,6 +18,9 @@ namespace Pulumi.Plant.Tree.V1
         [Output("farm")]
         public Output<string?> Farm { get; private set; } = null!;
 
+        [Output("size")]
+        public Output<Pulumi.Plant.Tree.V1.TreeSize?> Size { get; private set; } = null!;
+
         [Output("type")]
         public Output<Pulumi.Plant.Tree.V1.RubberTreeVariety> Type { get; private set; } = null!;
 
@@ -72,12 +75,16 @@ namespace Pulumi.Plant.Tree.V1
         [Input("farm")]
         public InputUnion<Pulumi.Plant.Tree.V1.Farm, string>? Farm { get; set; }
 
+        [Input("size")]
+        public Input<Pulumi.Plant.Tree.V1.TreeSize>? Size { get; set; }
+
         [Input("type", required: true)]
         public Input<Pulumi.Plant.Tree.V1.RubberTreeVariety> Type { get; set; } = null!;
 
         public RubberTreeArgs()
         {
             Farm = "(unknown)";
+            Size = Pulumi.Plant.Tree.V1.TreeSize.Medium;
         }
     }
 }

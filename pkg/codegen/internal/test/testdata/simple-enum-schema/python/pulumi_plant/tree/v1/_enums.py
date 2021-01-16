@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Farm',
     'RubberTreeVariety',
+    'TreeSize',
 ]
 
 
@@ -22,3 +23,9 @@ class RubberTreeVariety(str, Enum):
     BURGUNDY = "Burgundy"
     RUBY = "Ruby"
     TINEKE = "Tineke"
+
+
+class TreeSize(str, Enum):
+    SMALL = "small"
+    MEDIUM = "medium"
+    LARGE = "large"

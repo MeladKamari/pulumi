@@ -28,3 +28,11 @@ export const RubberTreeVariety = {
  * types of rubber trees
  */
 export type RubberTreeVariety = (typeof RubberTreeVariety)[keyof typeof RubberTreeVariety];
+
+export const TreeSize = {
+    Small: "small",
+    Medium: "medium",
+    Large: "large",
+} as const;
+
+export type TreeSize = (typeof TreeSize)[keyof typeof TreeSize];

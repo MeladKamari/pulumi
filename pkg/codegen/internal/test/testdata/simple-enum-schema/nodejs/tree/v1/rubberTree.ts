@@ -34,6 +34,7 @@ export class RubberTree extends pulumi.CustomResource {
 
     public readonly container!: pulumi.Output<outputs.Container | undefined>;
     public readonly farm!: pulumi.Output<enums.tree.v1.Farm | string | undefined>;
+    public readonly size!: pulumi.Output<enums.tree.v1.TreeSize | undefined>;
     public readonly type!: pulumi.Output<enums.tree.v1.RubberTreeVariety>;
 
     /**
@@ -51,10 +52,12 @@ export class RubberTree extends pulumi.CustomResource {
             }
             inputs["container"] = args ? args.container : undefined;
             inputs["farm"] = (args ? args.farm : undefined) || "(unknown)";
+            inputs["size"] = (args ? args.size : undefined) || "medium";
             inputs["type"] = args ? args.type : undefined;
         } else {
             inputs["container"] = undefined /*out*/;
             inputs["farm"] = undefined /*out*/;
+            inputs["size"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -74,5 +77,6 @@ export class RubberTree extends pulumi.CustomResource {
 export interface RubberTreeArgs {
     readonly container?: pulumi.Input<inputs.Container>;
     readonly farm?: pulumi.Input<enums.tree.v1.Farm | string>;
+    readonly size?: pulumi.Input<enums.tree.v1.TreeSize>;
     readonly type: pulumi.Input<enums.tree.v1.RubberTreeVariety>;
 }

@@ -9,4 +9,5 @@ export interface Container {
     color?: enums.ContainerColor | string;
     material?: string;
     size: enums.ContainerSize;
+    state?: enums.ContainerState;
 }

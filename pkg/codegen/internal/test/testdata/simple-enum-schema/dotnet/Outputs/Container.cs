@@ -17,6 +17,7 @@ namespace Pulumi.Plant.Outputs
         public readonly string? Color;
         public readonly string? Material;
         public readonly Pulumi.Plant.ContainerSize Size;
+        public readonly Pulumi.Plant.ContainerState? State;
 
         [OutputConstructor]
         private Container(
@@ -26,12 +27,15 @@ namespace Pulumi.Plant.Outputs
 
             string? material,
 
-            Pulumi.Plant.ContainerSize size)
+            Pulumi.Plant.ContainerSize size,
+
+            Pulumi.Plant.ContainerState? state)
         {
             Brightness = brightness;
             Color = color;
             Material = material;
             Size = size;
+            State = state;
         }
     }
 }

@@ -19,7 +19,8 @@ class Container(dict):
                  size: 'ContainerSize',
                  brightness: Optional['ContainerBrightness'] = None,
                  color: Optional[str] = None,
-                 material: Optional[str] = None):
+                 material: Optional[str] = None,
+                 state: Optional['ContainerState'] = None):
         pulumi.set(__self__, "size", size)
         if brightness is None:
             brightness = 1
@@ -29,6 +30,10 @@ class Container(dict):
             pulumi.set(__self__, "color", color)
         if material is not None:
             pulumi.set(__self__, "material", material)
+        if state is None:
+            state = 'new'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -49,6 +54,11 @@ class Container(dict):
     @pulumi.getter
     def material(self) -> Optional[str]:
         return pulumi.get(self, "material")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['ContainerState']:
+        return pulumi.get(self, "state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

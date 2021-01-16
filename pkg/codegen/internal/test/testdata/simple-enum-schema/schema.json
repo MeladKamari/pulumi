@@ -16,6 +16,10 @@
             {"type": "string"}
           ],
           "default": "(unknown)"
+        },
+        "size": {
+          "$ref": "#/types/plant:tree/v1:TreeSize",
+          "default": "medium"
         }
       },
       "properties": {
@@ -24,6 +28,10 @@
         },
         "type": {
           "$ref": "#/types/plant:tree/v1:RubberTreeVariety"
+        },
+        "size": {
+          "$ref": "#/types/plant:tree/v1:TreeSize",
+          "default": "medium"
         },
         "farm": {
           "oneOf": [
@@ -55,6 +63,10 @@
         "brightness": {
           "$ref": "#/types/plant::ContainerBrightness",
           "default": 1.0
+        },
+        "state": {
+          "$ref": "#/types/plant::ContainerState",
+          "default": "new"
         }
       },
       "required": ["size"]
@@ -132,6 +144,20 @@
         },
         {
           "value": "Plants'R'Us"
+        }
+      ]
+    },
+    "plant:tree/v1:TreeSize": {
+      "type": "string",
+      "enum": [
+        {
+          "value": "small"
+        },
+        {
+          "value": "medium"
+        },
+        {
+          "value": "large"
         }
       ]
     }

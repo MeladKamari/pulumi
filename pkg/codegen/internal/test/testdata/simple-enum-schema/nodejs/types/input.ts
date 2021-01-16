@@ -9,4 +9,5 @@ export interface Container {
     color?: pulumi.Input<enums.ContainerColor | string>;
     material?: pulumi.Input<string>;
     size: pulumi.Input<enums.ContainerSize>;
+    state?: pulumi.Input<enums.ContainerState>;
 }

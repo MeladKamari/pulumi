@@ -39,3 +39,19 @@ export const ContainerSize = {
  * plant container sizes
  */
 export type ContainerSize = (typeof ContainerSize)[keyof typeof ContainerSize];
+
+export const ContainerState = {
+    /**
+     * A brand new container.
+     */
+    New: "new",
+    /**
+     * A used container.
+     */
+    Used: "used",
+} as const;
+
+/**
+ * State of the container
+ */
+export type ContainerState = (typeof ContainerState)[keyof typeof ContainerState];
