@@ -1731,6 +1731,8 @@ func generatePackageContextMap(tool string, pkg *schema.Package, goInfo GoPackag
 		pkg.names.Add(resourceName(r) + "Args")
 		pkg.names.Add(camel(resourceName(r)) + "Args")
 		pkg.names.Add("New" + resourceName(r))
+		pkg.names.Add(resourceName(r) + "Output")
+		pkg.names.Add(resourceName(r) + "Input")
 		if !r.IsProvider && !r.IsComponent {
 			pkg.names.Add(resourceName(r) + "State")
 			pkg.names.Add(camel(resourceName(r)) + "State")
