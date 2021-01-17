@@ -118,6 +118,20 @@
         }
       ]
     },
+    "plant::ContainerState": {
+      "type": "string",
+      "description": "State of the container",
+      "enum": [
+        {
+          "value": "new",
+          "description": "A brand new container."
+        },
+        {
+          "value": "used",
+          "description": "A used container."
+        }
+      ]
+    },
     "plant:tree/v1:RubberTreeVariety": {
       "type": "string",
       "description": "types of rubber trees",

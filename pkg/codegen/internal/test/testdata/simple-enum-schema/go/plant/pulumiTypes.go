@@ -15,6 +15,7 @@ type Container struct {
 	Color      *string  `pulumi:"color"`
 	Material   *string  `pulumi:"material"`
 	Size       int      `pulumi:"size"`
+	State      *string  `pulumi:"state"`
 }
 
 // ContainerInput is an input type that accepts ContainerArgs and ContainerOutput values.
@@ -33,6 +34,7 @@ type ContainerArgs struct {
 	Color      pulumi.StringPtrInput `pulumi:"color"`
 	Material   pulumi.StringPtrInput `pulumi:"material"`
 	Size       ContainerSize         `pulumi:"size"`
+	State      *ContainerState       `pulumi:"state"`
 }
 
 func (ContainerArgs) ElementType() reflect.Type {
@@ -127,6 +129,10 @@ func (o ContainerOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v Container) int { return v.Size }).(pulumi.IntOutput)
 }
 
+func (o ContainerOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Container) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
 type ContainerPtrOutput struct{ *pulumi.OutputState }
 
 func (ContainerPtrOutput) ElementType() reflect.Type {
@@ -179,6 +185,15 @@ func (o ContainerPtrOutput) Size() pulumi.IntPtrOutput {
 		}
 		return &v.Size
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o ContainerPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Container) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
