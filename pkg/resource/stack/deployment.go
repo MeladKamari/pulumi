@@ -581,7 +581,7 @@ func DeserializePropertyValue(v interface{}, dec config.Decrypter,
 							return "", errors.New("malformed resource value: id must be a string")
 						}
 
-						pv := resource.PropertyValue{V}
+						pv := resource.PropertyValue{V: V}
 						if pv.IsNull() {
 							return "", nil
 						}
