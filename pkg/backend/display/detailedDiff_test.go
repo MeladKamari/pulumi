@@ -709,7 +709,7 @@ func TestTranslateDetailedDiff(t *testing.T) {
 			},
 		},
 		{
-			state: map[string]interface{}{},
+			state:  map[string]interface{}{},
 			inputs: map[string]interface{}{},
 			detailedDiff: map[string]plugin.PropertyDiff{
 				"foo[something.wonky]probably/miscalculated.by.provider": U,
