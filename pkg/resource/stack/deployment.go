@@ -570,7 +570,7 @@ func DeserializePropertyValue(v interface{}, dec config.Decrypter,
 					}
 					urn := resource.URN(urnStr)
 
-					propertyValueId := func(v interface{}) (string, error) {
+					propertyValueID := func(v interface{}) (string, error) {
 						mapV, ok := v.(map[string]interface{})
 						if !ok {
 							return "", errors.New("malformed resource value: id must be a string")
@@ -597,7 +597,7 @@ func DeserializePropertyValue(v interface{}, dec config.Decrypter,
 						id, ok := idV.(string)
 						if !ok {
 							// Handle PropertyValue type
-							id, err = propertyValueId(idV)
+							id, err = propertyValueID(idV)
 							if err != nil {
 								return resource.PropertyValue{}, err
 							}
