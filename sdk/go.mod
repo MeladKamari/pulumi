@@ -35,12 +35,11 @@ require (
 	github.com/uber/jaeger-client-go v2.22.1+incompatible
 	github.com/uber/jaeger-lib v2.2.0+incompatible // indirect
 	go.uber.org/atomic v1.6.0 // indirect
-	golang.org/x/crypto v0.0.0-20200317142112-1b76d66859c6
+	golang.org/x/crypto v0.17.0
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
-	golang.org/x/mod v0.3.0
-	golang.org/x/net v0.0.0-20200602114024-627f9648deb9
-	golang.org/x/sys v0.0.0-20200602225109-6fdc65e7d980
-	golang.org/x/tools v0.0.0-20200608174601-1b747fd94509 // indirect
+	golang.org/x/mod v0.8.0
+	golang.org/x/net v0.10.0
+	golang.org/x/sys v0.15.0
 	google.golang.org/genproto v0.0.0-20200608115520-7c474a2e3482 // indirect
 	google.golang.org/grpc v1.29.1
 	gopkg.in/cheggaaa/pb.v1 v1.0.28 // indirect
